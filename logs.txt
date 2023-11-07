@@ -1,6 +1,0 @@
-Jisd: hu
-hsd: ho
-sds: kjdjd
-
-${message}
-${message}: ава: лвалщые: валщые: лваKost: dfKost: kakKost: приветKost: как делаKost: вKost: вKost: вKost: вKost: аKost: аKost: пKost: вKost: ыKost: пKost: рKost: авKost: вKost: ыKost: ыKost: вKost: аKost: пKost: прKost: рKost: вKost: вKost: ыKost: вKost: аKost: пKost: рKost: аKost: аKost: вKost: ыKost: ыKost: ваKost: вKost: аKost: пKost: рпKost: рKost: аKost: аKost: вKost: ап
