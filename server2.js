@@ -1,8 +1,9 @@
 const WebSocket = require('ws');
 const server = new WebSocket.Server({ port: 8080 });
 
+//На сервере хранится список ключевых слов, которым соответствует несколько URL. 
 const keywords = {
-    'cat': ['https://catkote.net','https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%88%D0%BA%D0%B0','https://ngs.ru/text/animals/2022/05/03/71293085/'],
+    'cat': ['https://catkote.net','https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%88%D0%BA%D0%B0','https://www.purina.ru/cats/getting-a-new-cat/finding-the-right-cat-for-me/the-most-beautiful-cats'],
     'dog': ['https://www.sobaka.ru/','https://dog.fandom.com/ru/wiki/%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0','https://www.proplan.ru/dog/article/breeds/'],
     'bird': ['https://cyclowiki.org/wiki/%D0%9F%D1%82%D0%B8%D1%86%D1%8B','https://eksmo.ru/test/chto-vy-za-ptitsa/','https://birdsrussia.ru/about/articles/e-d-krasnova-bolshoy-pestryy-dyatel/']};
 
@@ -12,6 +13,7 @@ server.on('connection', (socket)=>{
     socket.addEventListener('message', (event) => {
         const message = JSON.parse(event.data)
         console.log(message)
+        //Сервер передаёт клиенту список URL
         if (message.type == 'key'){
             if ((Object.keys(keywords).indexOf(`${message.keyword}`)!=-1)){
                  const urls = keywords[message.keyword];
