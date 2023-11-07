@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+let url =  "https://catkote.net/";
+
+
+fetch(url)
+    .then(response => response.text())
+    .then(html => {
+    // 2. Создаем новый элемент iframe
+    const iframe = document.createElement('iframe');
+    
+    // 3. Устанавливаем содержимое iframe на основе загруженной страницы
+    iframe.srcdoc = html;
+    
+    // 4. Добавляем iframe на страницу
+    document.body.appendChild(iframe);
+    })
+    .catch(error => console.error('Ошибка:', error));
+</script>    
+</body>
+</html>

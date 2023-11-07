@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Загрузка страницы в iframe</title>
+</head>
+<body>
+    <button id="loadPageButton">Загрузить страницу</button>
+    <iframe id="myIframe" width="400" height="200"></iframe>
+
+    <script>
+        document.getElementById("loadPageButton").addEventListener("click", function () {
+            const urlToLoad = "https://fetch.spec.whatwg.org/#response-class"; // Замените URL на тот, который вы хотите загрузить
+
+            fetch(urlToLoad)
+                .then(response => response.text())
+                .then(html => {
+                    const iframe = document.getElementById("myIframe");
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    iframeDoc.open();
+                    iframeDoc.write(html);
+                    iframeDoc.close();
+                })
+                .catch(error => {
+                    console.error("Произошла ошибка при загрузке страницы:", error);
+                });
+        });
+    </script>
+</body>
+</html>
